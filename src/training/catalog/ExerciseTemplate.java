@@ -1,5 +1,6 @@
 package training.catalog;
 
+// Represents a basic exercise template with name, muscle group, and description
 public class ExerciseTemplate {
     private String name;
     private String muscleGroup;
@@ -23,6 +24,7 @@ public class ExerciseTemplate {
         return description;
     }
 
+    // Prints all exercise details
     public void info() {
         System.out.println("Exercise name: " + this.name);
         System.out.println("Muscle group: " + this.muscleGroup);
