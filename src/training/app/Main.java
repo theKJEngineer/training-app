@@ -1,6 +1,8 @@
 package training.app;
 
+import training.catalog.ExerciseCatalog;
 import training.catalog.ExerciseTemplate;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +18,22 @@ public class Main {
         System.out.println(" ");
         exerciseTemplate2.info();
 
+        // create catalog,
+        ExerciseCatalog catalog = new ExerciseCatalog(5);
+        // add templates
+        ExerciseTemplate squat = new ExerciseTemplate("Squat", "Legs", "Basic lower-body exercise");
+        ExerciseTemplate bench = new ExerciseTemplate("Bench Press", "Chest", "Push exercise for chest");
+
+        catalog.addExercise(squat);
+        catalog.addExercise(bench);
+
+        //list
+        catalog.showAll();
+
+        // search
+        ExerciseTemplate found = catalog.getByName("Squat");
+
+        // validations
+        catalog.addExercise(null);
     }
 }
