@@ -2,6 +2,7 @@ package training.app;
 
 import training.catalog.ExerciseCatalog;
 import training.catalog.ExerciseTemplate;
+import training.workout.Set;
 
 
 public class Main {
@@ -35,5 +36,17 @@ public class Main {
 
         // validations
         catalog.addExercise(null);
+
+
+        Set s1 = new Set(10, 60);
+        s1.info();
+        System.out.println("Total weight: " + s1.totalWeight());
+        System.out.println();
+
+        Set s2 = new Set(-5, 40);
+        s2.info();
+        System.out.println("Total weight: " + s2.totalWeight());
+        System.out.println();
+
     }
 }
