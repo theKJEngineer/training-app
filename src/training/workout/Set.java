@@ -1,8 +1,17 @@
 package training.workout;
 
+/**
+ * Represents a single exercise set (number of reps and weight used)
+ */
+
 public class Set {
     private int reps;
     private double weight;
+
+    /**
+     * Creates a new set with given reps and weight.
+     * If invalid values are provided, defaults are applied.
+     */
 
     public Set(int reps, double weight) {
         if (reps <= 0) {
