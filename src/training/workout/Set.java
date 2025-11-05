@@ -14,6 +14,8 @@ public class Set {
      */
 
     public Set(int reps, double weight) {
+        this.reps = reps;
+        this.weight = weight;
         if (reps <= 0) {
             System.out.println("Reps must be greater than 0. Set to 1 by default.");
             this.reps = 1;
@@ -22,8 +24,7 @@ public class Set {
             System.out.println("Weight must be greater than 0. Set to 0 by default.");
             this.weight = 0;
         }
-        this.reps = reps;
-        this.weight = weight;
+
     }
 
     public int getReps() {
