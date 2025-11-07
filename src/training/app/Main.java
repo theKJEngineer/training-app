@@ -2,6 +2,7 @@ package training.app;
 
 import training.catalog.ExerciseCatalog;
 import training.catalog.ExerciseTemplate;
+import training.history.WorkoutHistory;
 import training.workout.Exercise;
 import training.workout.Set;
 import training.workout.Workout; // Required import for the full test
@@ -110,6 +111,41 @@ public class Main {
         double totalVolume = myWorkout.calculateTotalWorkoutWeight();
         System.out.println("--- Workout Volume ---");
         System.out.println("Total Workout Volume: " + totalVolume + " kg");
+
+        // --- Tests: WorkoutHistory Class ---
+        System.out.println("\n--- Tests: WorkoutHistory ---");
+
+        // 1. Create a history log
+        WorkoutHistory history = new WorkoutHistory("TheKJEngineer", 10);
+
+        // 2. Add workouts to history
+        history.addWorkout(myWorkout); // Add workout from "2025-11-05"
+
+        // Create and add a second workout
+        Workout myWorkout2 = new Workout("Full Body B", "2025-11-07", 3);
+        myWorkout2.addExercise(squatExercise); // Re-use the squat exercise
+        history.addWorkout(myWorkout2);
+
+        // 3. Show history summary
+        System.out.println("\n--- Test: History Summary ---");
+        history.showHistorySummary(); // Should show 2 workouts
+
+        // 4. Test search (valid date)
+        System.out.println("\n--- Test: Search (Valid Date: 2025-11-05) ---");
+        history.showWorkoutDetailsByDate("2025-11-05");
+
+        // 5. Test search (invalid date)
+        System.out.println("\n--- Test: Search (Invalid Date: 2000-01-01) ---");
+        history.showWorkoutDetailsByDate("2000-01-01"); // Should show "No workout found..."
+
+        // 6. Test getByDate method
+        System.out.println("\n--- Test: getWorkoutByDate ---");
+        Workout foundWorkout = history.getWorkoutByDate("2025-11-07");
+        if (foundWorkout != null) {
+            System.out.println("Found workout by date: " + foundWorkout.getName());
+        } else {
+            System.out.println("ERROR: Workout not found by date!");
+        }
 
         System.out.println("\n--- All tests finished ---");
     }
